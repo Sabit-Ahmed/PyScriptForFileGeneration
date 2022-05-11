@@ -19,7 +19,7 @@ exercises = [
 ]
 
 
-def generate_android_file():
+def generate_kotlin_file():
     for exercise in exercises:
         exercise_number = exercise.get("id")
         name = exercise.get("name")
@@ -40,7 +40,7 @@ def generate_android_file():
     class {name}(context: Context) : HomeExercise(context = context, id = {exercise_number})""")
 
 
-def generate_ios_file():
+def generate_swift_file():
     for exercise in exercises:
         exercise_number = exercise.get("id")
         name = exercise.get("name")
