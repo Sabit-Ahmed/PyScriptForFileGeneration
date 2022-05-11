@@ -2,19 +2,24 @@ from pathlib import Path
 
 exercises = [
     {
-        "id": 678,
-        "name": "OneLeggedHingeRightInStanding",
-        "type": "golf"
+        "id": 74,
+        "name": "Isometric Cervical Combination Strengthening in Sitting",
+        "type": "NECK"
     },
     {
-        "id": 652,
-        "name": "OneLeggedSquats",
-        "type": "fitness"
+        "id": 530,
+        "name": "Isometric Cervical Combination Strengthening in Standing",
+        "type": "NECK"
     },
     {
-        "id": 621,
-        "name": "SwimmerInProne",
-        "type": "golf"
+        "id": 316,
+        "name": "Cervical Flexion with Resistance Band in Sitting",
+        "type": "NECK"
+    },
+    {
+        "id": 317,
+        "name": "Cervical Extension with Resistance Band in Sitting",
+        "type": "NECK"
     },
 ]
 
@@ -43,7 +48,7 @@ def generate_kotlin_file():
 def generate_swift_file():
     for exercise in exercises:
         exercise_number = exercise.get("id")
-        name = exercise.get("name")
+        name = exercise.get("name").title().replace(" ", "")
         category = exercise.get("type").lower()
 
         folder = Path() / category
