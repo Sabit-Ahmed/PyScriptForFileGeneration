@@ -5,8 +5,30 @@ from base64 import b64encode
 
 def generate_ios_audio_file():
     instructions = np.unique([
-        "LIFT LEFT LEG UP",
-        "LIFT RIGHT LEG UP"
+        "LIFT HEAD AND ARMS UP",
+        "BRING ARMS AT THE BACK",
+        "BRING ARMS BACK FORWARD",
+        "RETURN FLAT ON THE MAT",
+        "RAISE YOUR RIGHT ARM AND YOUR LEFT LEG",
+        "RAISE YOUR LEFT ARM AND YOUR RIGHT LEG",
+        "LEFT",
+        "RIGHT",
+        "PULL AND SWING YOUR RIGHT HAND OUT TO THE RIGHT",
+        "PULL AND AND SWING YOUR LEFT HAND OUT TO THE LEFT",
+        "PULL AND SWING YOUR RIGHT HAND IN TO THE LEFT",
+        "PULL AND SWING YOUR LEFT HAND IN TO THE RIGHT",
+        "RETURN TO THE STARTING POSITION",
+        "BEGIN",
+        "BRING YOUR LEFT ELBOW TO YOUR RIGHT KNEE",
+        "BRING YOUR RIGHT ELBOW TO YOUR LEFT KNEE",
+        "BEND YOUR KNEES",
+        "SWITCH YOUR LEFT FOOT WITH YOUR RIGHT FOOT",
+        "PLACE YOUR RIGHT FOOT ON THE SEAT",
+        "PLACE YOUR LEFT FOOT ON THE SEAT",
+        "BEND YOUR LEFT ELBOW",
+        "BEND YOUR RIGHT ELBOW",
+        "RAISE YOUR RIGHT ARM",
+        "RAISE YOUR LEFT ARM"
     ])
 
     # instructions = [" ".join(x.split("_")) for x in instructions]
@@ -27,7 +49,7 @@ def generate_ios_audio_file():
                 "Authorization": f"Basic {str(b64encode(AUTHORIZATION))[2:-1]}",
             }
         )
-        data = json.loads(respose.json())
+        data = respose.json()
         resp = requests.get(data["Message"]["AudioUrl"])
         with open("audio_cues/" + filename, "wb") as file:
             file.write(resp.content)
